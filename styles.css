@@ -34,7 +34,17 @@ form {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.group_form {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  padding: 20px;
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .sushiList{
     position: fixed;
     bottom: 0;

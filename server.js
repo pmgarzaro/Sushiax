@@ -27,7 +27,7 @@ app.post('/register', function(req, res) {
   
 // Route pour afficher toutes les commandes
 app.get('/orders', (req, res) => {
-    let html = `<img class="axianslogo" src="https://www.axians.fr/app/uploads/sites/55/2022/05/Logo_Axians_White_512x512-1.png">
+/*     let html = `<img class="axianslogo" src="https://www.axians.fr/app/uploads/sites/55/2022/05/Logo_Axians_White_512x512-1.png">
                 <link rel="stylesheet" href="styles.css">
                 <form class=sushiList action="/clear" method="post">
                 <h1>Liste des commandes</h1>`;
@@ -43,7 +43,8 @@ app.get('/orders', (req, res) => {
                 <button type="submit">Clear</button>
                </div>
              </form>`;
-    res.send(html);
+    res.send(html); */
+    res.sendFile(__dirname + '/orders.html');
 });
 
 app.post('/clear', function(req, res) {
