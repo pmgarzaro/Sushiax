@@ -1,16 +1,26 @@
- @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('<https://fonts.googleapis.com/css?family=Roboto>');
+
+:root {
+  --color-background: #005EB8;
+  --color-text: black;
+  --color-accent: black;
+  --color-button-background: black;
+  --color-button-text: white;
+  --font-family: "Roboto", sans-serif;
+}
 
 body {
-  font-family: "Roboto", sans-serif;
-  background: #005EB8;
-  
+  font-family: var(--font-family);
+  background: var(--color-background);
 }
+
 .axianslogo {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -18,13 +28,13 @@ body {
   height: 100vh;
 }
 
-h1,h2,p {
+h1, h2, p {
   text-align: center;
-  color: black;
+  color: var(--color-text);
 }
 
-form {
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+form, .group_form {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.52);
   padding: 20px;
   width: 100%;
   max-width: 450px;
@@ -34,29 +44,19 @@ form {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.group_form {
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  padding: 20px;
+
+.sushiList {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  max-width: 450px;
-  background: white;
-  position: absolute;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: white;
+  z-index: 1;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-.sushiList{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 20px;
-    background-color: white;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
 }
 
 .group {
@@ -67,68 +67,50 @@ form {
 
 input[type=text] {
   font-size: 16px;
-  color: black;
+  color: var(--color-text);
   margin-bottom: 55px;
   display: block;
   width: 100%;
   position: relative;
   border: none;
   outline: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-text);
 }
-
 
 label {
   position: absolute;
   pointer-events: none;
-  left:5px;
-  font-size: 14px;
-  color: black;
-  top: 1px;
-  transition: all 300ms ease; 
-}
-
-input:focus + label {
-    top: -20px;
-    font-size: 10px;
-}
-
-input:valid + label {
   top: -20px;
-  font-size: 10px;
+  left: 5px;
+  font-size: 25px;
+  color: var(--color-text);
+  transition: all 300ms ease;
 }
 
-button {
+input:focus + label, input:valid + label {
+  top: -20px;
+  font-size: 15px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button, input[type=button] {
   border: solid 1px transparent;
-  background: black;
-  color: white;
+  background: var(--color-button-background);
+  color: var(--color-button-text);
   padding: 10px 50px;
   border-radius: 25px;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family);
   font-size: 20px;
   transition: 300ms;
 }
 
-button:hover {
+button:hover, input[type=button]:hover {
   cursor: pointer;
-  background: white;
-  color: black;
-  border-color:black;
-}
-input[type=button] {
-    border: solid 1px transparent;
-    background: black;
-    color: white;
-    padding: 10px 50px;
-    border-radius: 25px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    transition: 300ms;
-}
-
-input[type=button]:hover {
-    cursor: pointer;
-    background: white;
-    color: black;
-    border-color:black;
+  background: var(--color-button-background);
+  color: var(--color-button-text);
+  border-color: var(--color-button-text);
 }

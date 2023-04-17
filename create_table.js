@@ -1,20 +1,19 @@
-const dataString = localStorage.getItem('formData');
-const data = JSON.parse(dataString);
+const formDataString = localStorage.getItem('formData');
+const formData = JSON.parse(formDataString);
 
-// Crée une div table pour chaque clef du tableau
 const tablesContainer = document.getElementById('tablesContainer');
 
-for (const key of Object.keys(data)) {
+for (const fieldName of Object.keys(formData)) {
   const table = document.createElement('table');
-  const values = data[key].split(", ");
+  const fieldValues = formData[fieldName].split(", ");
 
   let isFirstRow = true;
-  for (const value of values) {
+  for (const value of fieldValues) {
     const row = document.createElement('tr');
 
     if (isFirstRow) {
       const headerCell = document.createElement('th');
-      headerCell.textContent = key;
+      headerCell.textContent = fieldName;
       row.appendChild(headerCell);
       isFirstRow = false;
     }
@@ -29,9 +28,8 @@ for (const key of Object.keys(data)) {
   tablesContainer.appendChild(table);
 }
 
-// Ajoute un gestionnaire d'événements pour effacer les données stockées
 const clearButton = document.getElementById("clearButton");
-clearButton.addEventListener("click", function() {
+clearButton.addEventListener("click", function clearFormData() {
   localStorage.removeItem('formData');
-  window.location.href = "orders.html";
+  window.location.href = `orders.html`;
 });
